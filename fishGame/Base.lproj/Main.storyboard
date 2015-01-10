@@ -119,11 +119,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cOw-Sd-9oP"/>
+                    <navigationItem key="navigationItem" id="6NB-cq-lol">
+                        <barButtonItem key="leftBarButtonItem" title="BUTTON" id="CkS-Yl-9yN"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="begin" destination="Hph-cU-93J" id="jNY-3z-9W5"/>
-                        <outlet property="menuButton" destination="jMK-x9-OAT" id="9HR-Dh-3xF"/>
                         <outlet property="score" destination="l4l-To-0ts" id="sOu-lN-C8P"/>
                     </connections>
                 </viewController>
@@ -134,7 +135,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nrL-aH-JFy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yVa-eJ-NJF" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yVa-eJ-NJF" customClass="NavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MQM-k5-sqf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

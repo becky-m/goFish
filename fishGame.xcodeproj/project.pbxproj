@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		353F26DE1A5CDA5700864711 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 353F26DC1A5CDA5700864711 /* DataCore.xcdatamodeld */; };
+		35A69C4A1A60BE2200F62542 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A69C491A60BE2200F62542 /* NavigationController.m */; };
 		35B2D8481A5AC3FF0009322F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B2D8471A5AC3FF0009322F /* main.m */; };
 		35B2D84B1A5AC3FF0009322F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B2D84A1A5AC3FF0009322F /* AppDelegate.m */; };
 		35B2D84E1A5AC3FF0009322F /* fishGame.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35B2D84C1A5AC3FF0009322F /* fishGame.xcdatamodeld */; };
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		353F26DD1A5CDA5700864711 /* DataCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataCore.xcdatamodel; sourceTree = "<group>"; };
+		35A69C481A60BE2200F62542 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		35A69C491A60BE2200F62542 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		35B2D8421A5AC3FF0009322F /* fishGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fishGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B2D8461A5AC3FF0009322F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35B2D8471A5AC3FF0009322F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				35F3F40B1A5F66580015652F /* GameController.m */,
 				35F3F40C1A5F66580015652F /* ViewController.h */,
 				35F3F40D1A5F66580015652F /* ViewController.m */,
+				35A69C481A60BE2200F62542 /* NavigationController.h */,
+				35A69C491A60BE2200F62542 /* NavigationController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				35F3F40F1A5F66580015652F /* ViewController.m in Sources */,
 				35F3F41B1A5F66830015652F /* MenuBar.m in Sources */,
 				35F3F40E1A5F66580015652F /* GameController.m in Sources */,
+				35A69C4A1A60BE2200F62542 /* NavigationController.m in Sources */,
 				35B2D84E1A5AC3FF0009322F /* fishGame.xcdatamodeld in Sources */,
 				35F3F4181A5F667A0015652F /* FishingLine.m in Sources */,
 			);

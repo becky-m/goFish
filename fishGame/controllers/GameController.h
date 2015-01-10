@@ -23,9 +23,6 @@
     Hook *hookInstance;
     Fish *fishInstance;
     FishingLine *fishingLineInstance;
-    MenuBar *menuInstance;
-    
-    IBOutlet UIButton *menuButton;
     
     int scoreValue;
     UIImageView *fish;
@@ -38,13 +35,18 @@
     int whichFish; 
     bool hasCollided;
     
-    bool userTap; 
+    bool userTap;
+    
+    MenuBar *menuInstance;
+    
+    IBOutlet UIButton *menuButton;
 }
 
 -(IBAction)StartButton:(id)sender;
 -(void)sceneMovement;
 -(void)tapRecognition;
 -(void)Collision;
--(void)addScore; 
+-(void)addScore;
+-(void)setUpNavigationBar;
 
 @end

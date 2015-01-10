@@ -19,14 +19,11 @@
 @implementation GameController
 
 - (void)viewDidLoad {
+    
+    [self setUpNavigationBar];
 
     hasCollided =FALSE;
     userTap = FALSE;
-    
-    //Let's add some menu items to the game controller.
-    menuInstance = [[MenuBar alloc]init];
-    
-    [menuButton addSubview:[menuInstance addMenuBar]];
 
     //Add the fishing line instance to the controller. 
     fishingLineInstance = [[FishingLine alloc] init];
@@ -69,6 +66,18 @@
     [beginBtnImage setImage:[UIImage imageNamed:@"begin"]];
     
     [begin addSubview:beginBtnImage];
+}
+
+-(void)setUpNavigationBar {
+    
+    //Let's add some menu items to the game controller.
+    menuInstance = [[MenuBar alloc]init];
+    
+    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:[menuInstance addMenuBar]];
+    
+    self.navigationItem.leftBarButtonItem =item;
+    
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
 }
 
 -(void)addScore {
