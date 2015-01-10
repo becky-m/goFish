@@ -22,38 +22,38 @@
     
     [self setUpNavigationBar];
 
-    hasCollided =FALSE;
-    userTap = FALSE;
+    _hasCollided =FALSE;
+    _userTap = FALSE;
 
     //Add the fishing line instance to the controller. 
-    fishingLineInstance = [[FishingLine alloc] init];
-    [fishingLineInstance initFishingLine];
+    _fishingLineInstance = [[FishingLine alloc] init];
+    [_fishingLineInstance initFishingLine];
     
-    [self.view addSubview:[fishingLineInstance fishingLine]];
+    [self.view addSubview:[_fishingLineInstance fishingLine]];
     
     //add fish items to the game controller.
-    fishArray = [[NSMutableArray alloc] initWithCapacity:10];
+    _fishArray = [[NSMutableArray alloc] initWithCapacity:10];
 
     
-    fishInstance = [[Fish alloc] init];
-    [fishInstance initFish];
+    _fishInstance = [[Fish alloc] init];
+    [_fishInstance initFish];
     
     for(int i= 0; i < 10; i++) {
         
-        fish = [fishInstance addFish];
+        _fish = [_fishInstance addFish];
         
-        [self.view addSubview:fish];
+        [self.view addSubview:_fish];
         
-        [fishArray addObject:fish];
+        [_fishArray addObject:_fish];
         
     }
 
     //Add the hook instance to the game controller.
-    hookInstance = [[Hook alloc] init];
+    _hookInstance = [[Hook alloc] init];
     
-    hook = [hookInstance hookImageView];
+    _hook = [_hookInstance hookImageView];
     
-    [self.view addSubview:[hookInstance hookImageView]];
+    [self.view addSubview:[_hookInstance hookImageView]];
     
     //what to do when the view is tapped.
     [self tapRecognition];
@@ -62,10 +62,10 @@
     // Do any additional setup after loading the view.
     
     CGRect beginBtn = CGRectMake(0, 10, 180, 50);
-    beginBtnImage = [[UIImageView alloc] initWithFrame:beginBtn];
-    [beginBtnImage setImage:[UIImage imageNamed:@"begin"]];
+    _beginBtnImage = [[UIImageView alloc] initWithFrame:beginBtn];
+    [_beginBtnImage setImage:[UIImage imageNamed:@"begin"]];
     
-    [begin addSubview:beginBtnImage];
+    [begin addSubview:_beginBtnImage];
 }
 
 -(void)setUpNavigationBar {
@@ -78,7 +78,7 @@
        forControlEvents:UIControlEventTouchUpInside];
     
     //Let's add some menu items to the game controller.
-    menuInstance = [[MenuBar alloc]init];
+    _menuInstance = [[MenuBar alloc]init];
     
     UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:button];
     
@@ -94,8 +94,8 @@
 }
 
 -(void)addScore {
-    scoreValue  += 1;
-    score.text = [NSString stringWithFormat: @"%d",scoreValue];
+    _scoreValue  += 1;
+    score.text = [NSString stringWithFormat: @"%d",_scoreValue];
 }
 
 
@@ -103,66 +103,66 @@
 -(void)Collision {
     
     //get the frames.
-    hookFrame = [hookInstance getHookFrame];
-    lineFrame = [fishingLineInstance getLineFrame];
+    _hookFrame = [_hookInstance getHookFrame];
+    _lineFrame = [_fishingLineInstance getLineFrame];
     
     //has the hook already collided with something?
-    if(hasCollided == FALSE){
+    if(_hasCollided == FALSE){
         
         //work through the obects and find any collisions.
         for(int i = 0; i < 10; i++) {
             
-            UIImageView *fish = [fishInstance getFishFrame: i];
+            UIImageView *fish = [_fishInstance getFishFrame: i];
         
-            fishFrame = fish.frame;
+            _fishFrame = fish.frame;
         
-            CGPoint a = fishFrame.origin;
-            CGPoint b = hookFrame.origin;
+            CGPoint a = _fishFrame.origin;
+            CGPoint b = _hookFrame.origin;
             CGFloat distance = sqrt(pow((b.x - a.x),2) + pow((b.y - a.y),2));
         
             //if the hook object intersects with the dimensions of any fish.
-            if(distance < (fishFrame.size.height/2.0 + hookFrame.size.height/2.0)){
+            if(distance < (_fishFrame.size.height/2.0 + _hookFrame.size.height/2.0)){
                 //images are touching.
-                whichFish = i;
-                [fishInstance caught:i];
+                _whichFish = i;
+                [_fishInstance caught:i];
                 
                 //magic!
-                int type = [[fishInstance getFishType:i]intValue];
+                int type = [[_fishInstance getFishType:i]intValue];
                 //change to caught image when a fish has been caught.
-                [hookInstance changeImageCaught: lineFrame.origin.x- 44: lineFrame.size.height + 60: type];
-                [fishingLineInstance liftLine];//start reeling the fish in.
-                [hookInstance liftHook];
+                [_hookInstance changeImageCaught: _lineFrame.origin.x- 44: _lineFrame.size.height + 60: type];
+                [_fishingLineInstance liftLine];//start reeling the fish in.
+                [_hookInstance liftHook];
                 
                 //tell the controller that the hook and fish have collided.
-                hasCollided = TRUE;
+                _hasCollided = TRUE;
                 //reset everthing in the fish instance.
-                [fishInstance reset:i];
+                [_fishInstance reset:i];
                 [self addScore];//add one to the score.
                 
             }
             
             //what to do when the hook doesn't catch anything.
-            if (hookFrame.origin.y + hookFrame.size.height == 600){
-                [fishingLineInstance hitBottom];
-                [hookInstance hitBottom];
-                userTap = FALSE;
+            if (_hookFrame.origin.y + _hookFrame.size.height == 600){
+                [_fishingLineInstance hitBottom];
+                [_hookInstance hitBottom];
+                _userTap = FALSE;
             }
         }
     }
     
     //reset all hook and fish data upon reeling in the fish.
-        if([fishInstance reset: whichFish] == TRUE) {
-            BOOL check = [fishingLineInstance checkIfNeedsReset];
+        if([_fishInstance reset: _whichFish] == TRUE) {
+            BOOL check = [_fishingLineInstance checkIfNeedsReset];
         
             if (check == TRUE) {
-                [fishInstance store:whichFish];
+                [_fishInstance store:_whichFish];
             }
-            if([fishInstance fishStored:whichFish] == TRUE) {
-                [fishingLineInstance haulFish:TRUE];
-                [hookInstance haulFish:TRUE];
+            if([_fishInstance fishStored:_whichFish] == TRUE) {
+                [_fishingLineInstance haulFish:TRUE];
+                [_hookInstance haulFish:TRUE];
                 
             }
-            userTap = FALSE;
+            _userTap = FALSE;
         }
 }
 
@@ -181,22 +181,20 @@
     
     begin.hidden= YES;
 
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(sceneMovement) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(sceneMovement) userInfo:nil repeats:YES];
     
 }
 
 //what to do when the user taps the screen.
 -(IBAction)handleTap:(id)sender {
-    userTap = TRUE;
-    hasCollided = FALSE;
+    _userTap = TRUE;
+    _hasCollided = FALSE;
     
-    [fishInstance setResetRound:FALSE];
-    [fishInstance setFishStore:FALSE];
+    [_fishInstance setResetRound:FALSE];
+    [_fishInstance setFishStore:FALSE];
     
-    [hookInstance dropLine];
-    [fishingLineInstance dropLine];
-    
-    NSLog(@"CHECK STUFF %f", hookFrame.origin.y);
+    [_hookInstance dropLine];
+    [_fishingLineInstance dropLine];
 }
 
 //Move the hook and the fishing line when we touch the screen.
@@ -204,19 +202,19 @@
 
     UITouch *touch = [[event touchesForView:self.view] anyObject];
     CGPoint point = [touch locationInView:self.view];
-    [hookInstance moveOnTouch:point.x];
-    [fishingLineInstance moveOnTouch:point.x];
+    [_hookInstance moveOnTouch:point.x];
+    [_fishingLineInstance moveOnTouch:point.x];
 }
 
 //deal with animation and 'live' calculations here.
 -(void)sceneMovement {
     
-    [fishInstance swim];
-    [fishingLineInstance dropLine:userTap];
-    [hookInstance moveHookWithLine:userTap];
-    [hookInstance haulFish:lineFrame.origin.x- 44: lineFrame.size.height];
+    [_fishInstance swim];
+    [_fishingLineInstance dropLine:_userTap];
+    [_hookInstance moveHookWithLine:_userTap];
+    [_hookInstance haulFish:_lineFrame.origin.x- 44: _lineFrame.size.height];
     [self Collision];
-    reset = [fishingLineInstance reset];
+    _reset = [_fishingLineInstance reset];
 }
 
 - (void)didReceiveMemoryWarning {

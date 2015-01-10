@@ -16,31 +16,30 @@
 
     IBOutlet UIButton *begin;
     IBOutlet UILabel *score;
-    
-    UIImageView *beginBtnImage;
-    
-    NSTimer *timer;
-    Hook *hookInstance;
-    Fish *fishInstance;
-    FishingLine *fishingLineInstance;
-    
-    int scoreValue;
-    UIImageView *fish;
-    UIImageView *hook;
-    NSMutableArray *fishArray;
-    CGRect hookFrame;
-    CGRect fishFrame;
-    CGRect lineFrame;
-    BOOL reset; 
-    int whichFish; 
-    bool hasCollided;
-    
-    bool userTap;
-    
-    MenuBar *menuInstance;
-    
     IBOutlet UIButton *menuButton;
 }
+    
+@property(nonatomic, strong) UIImageView *beginBtnImage;
+    
+@property(nonatomic, strong) NSTimer *timer;
+@property(nonatomic, strong) Hook *hookInstance;
+@property(nonatomic, strong) Fish *fishInstance;
+@property(nonatomic, strong) FishingLine *fishingLineInstance;
+    
+@property(nonatomic) int scoreValue;
+@property(nonatomic, strong) UIImageView *fish;
+@property(nonatomic, strong) UIImageView *hook;
+@property(nonatomic, strong) NSMutableArray *fishArray;
+@property(nonatomic) CGRect hookFrame;
+@property(nonatomic) CGRect fishFrame;
+@property(nonatomic) CGRect lineFrame;
+@property(nonatomic) BOOL reset;
+@property(nonatomic) int whichFish;
+@property(nonatomic)  bool hasCollided;
+    
+@property(nonatomic) bool userTap;
+    
+@property(nonatomic) MenuBar *menuInstance;
 
 -(IBAction)StartButton:(id)sender;
 -(void)sceneMovement;
