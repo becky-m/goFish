@@ -70,14 +70,27 @@
 
 -(void)setUpNavigationBar {
     
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 45, 30)];
+    
+    [button setImage:[UIImage imageNamed:@"menubtn"] forState:UIControlStateNormal];
+    
+    [button addTarget:self action:@selector(back:)
+       forControlEvents:UIControlEventTouchUpInside];
+    
     //Let's add some menu items to the game controller.
     menuInstance = [[MenuBar alloc]init];
     
-    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:[menuInstance addMenuBar]];
+    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     self.navigationItem.leftBarButtonItem =item;
-    
+
     self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
+    
+}
+
+-(IBAction)back:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)addScore {

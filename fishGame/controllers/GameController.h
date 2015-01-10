@@ -48,5 +48,6 @@
 -(void)Collision;
 -(void)addScore;
 -(void)setUpNavigationBar;
+-(IBAction)back:(id)sender;
 
 @end

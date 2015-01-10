@@ -18,10 +18,11 @@
 }
 */
 
--(UIImageView *)addMenuBar {
-    CGRect menuBtnBar = CGRectMake(0, 10, 45, 30);
-     _menuBar = [[UIImageView alloc] initWithFrame:menuBtnBar];
-    [_menuBar setImage:[UIImage imageNamed:@"menubtn"]];
+-(UIButton *)addMenuBar {
+    
+    _menuBar = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 45, 30)];
+    
+    [_menuBar setImage:[UIImage imageNamed:@"menubtn"] forState:UIControlStateNormal];
     
     return _menuBar;
 }

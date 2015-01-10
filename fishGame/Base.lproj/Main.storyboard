@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="301" y="344"/>
+            <point key="canvasLocation" x="305" y="344"/>
         </scene>
         <!--Game Controller-->
         <scene sceneID="DAv-Pw-9vh">
@@ -119,9 +119,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6NB-cq-lol">
-                        <barButtonItem key="leftBarButtonItem" title="BUTTON" id="CkS-Yl-9yN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="6NB-cq-lol"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="begin" destination="Hph-cU-93J" id="jNY-3z-9W5"/>
@@ -148,7 +146,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEh-dV-r6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="344"/>
+            <point key="canvasLocation" x="848" y="344"/>
         </scene>
     </scenes>
     <resources>

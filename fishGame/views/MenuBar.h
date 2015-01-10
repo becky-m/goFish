@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuBar : UIImageView
+@interface MenuBar : UIButton
 
-@property(nonatomic, strong) UIImageView *menuBar;
+@property(nonatomic, strong) UIButton *menuBar;
 
--(UIImageView *)addMenuBar;
+-(UIButton *)addMenuBar;
 
 @end
