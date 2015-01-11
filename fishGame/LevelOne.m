@@ -18,7 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"GOFISH: Level One";
-    [super setNumberOfFish:10];
+    [super setNumberOfFish:5 :1];
+    
     nextLevel.hidden = YES;
  
 

@@ -51,8 +51,10 @@
 -(void)addScore;
 -(void)setUpNavigationBar;
 -(IBAction)back:(id)sender;
--(void) setNumberOfFish:(int)numberOfFish;
+-(void) setNumberOfFish:(int)numberOfFish :(int)end;
 -(int) getScoreValue;
 -(BOOL) beginSelected;
+-(void)setFishImageType:(int)fishImageType;
+-(void) levelOne: (int)numberOfFish: (int)end;
 
 @end

@@ -30,7 +30,7 @@
 -(void)moveHookWithLine: (BOOL)userTap;
 -(void) moveOnTouch: (int)x;
 -(CGRect)getHookFrame;
--(void)changeImageCaught: (int)lineX: (int)lineY : (int)type;
+-(void)changeImageCaught: (int)lineX: (int)lineY : (NSString *)type;
 -(void)liftHook;
 -(void)dropLine;
 -(void) haulFish: (int)lineX: (int)lineY;

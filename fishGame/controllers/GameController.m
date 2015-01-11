@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     
+    _fishInstance = [[Fish alloc] init];
+    [_fishInstance initFish];
     
     beginPressed = FALSE;
     
@@ -57,15 +59,16 @@
     [begin addSubview:_beginBtnImage];
 }
 
+
+
 -(BOOL) beginSelected {
     return beginPressed;
 }
 
--(void) setNumberOfFish:(int)numberOfFish {
+-(void) setNumberOfFish:(int)numberOfFish: (int)end {
     
-    _fishInstance = [[Fish alloc] init];
-    [_fishInstance initFish];
-    
+    int totalTypeValues = end;
+
     if(numberOfFish == (int)nil ) {
         _numberOfFish = 10;
     }
@@ -74,8 +77,15 @@
     }
     
     for(int i= 0; i < _numberOfFish; i++) {
+        [_fishInstance change:end];
+        [_fishInstance changeImage:end :i];
+    }
+    
+    [_fishInstance setNumberOfFish:_numberOfFish];
+    
+    for(int i= 0; i < _numberOfFish; i++) {
         
-        _fish = [_fishInstance addFish];
+        _fish = [_fishInstance addFish: i];
         
         [self.view addSubview:_fish];
         
@@ -83,7 +93,7 @@
         
     }
     
-    [_fishInstance setNumberOfFish:_numberOfFish];
+
 }
 
 -(void)setUpNavigationBar {
@@ -150,7 +160,7 @@
                 [_fishInstance caught:i];
                 
                 //magic!
-                int type = [[_fishInstance getFishType:i]intValue];
+                NSString *type = [_fishInstance getFishType:i];
                 //change to caught image when a fish has been caught.
                 [_hookInstance changeImageCaught: _lineFrame.origin.x- 44: _lineFrame.size.height + 60: type];
                 [_fishingLineInstance liftLine];//start reeling the fish in.

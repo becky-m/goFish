@@ -20,6 +20,7 @@
     _fishes = [[NSMutableArray alloc] initWithCapacity:count];
     _randomXArr = [[NSMutableArray alloc] initWithCapacity:count];
     _fishType = [[NSMutableArray alloc] initWithCapacity:count];
+    _fishImages = [[NSMutableArray alloc] initWithCapacity:count];
     
     _resetRound = FALSE;
 }
@@ -28,9 +29,18 @@
     _numberOfFish = fish;
 }
 
+-(void) setImageValue:(int)imageValue {
+    
+    if(!imageValue) {
+        _imageValue = arc4random() % 2;
+    }
+    _imageValue = imageValue;
+
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (UIImageView*)addFishImage: (int) xPos: (int) yPos :(int) direction {
+- (UIImageView*)addFishImage: (int) xPos: (int) yPos :(int) direction :(int)whichFIsh {
     
     _screenRect = [[UIScreen mainScreen] bounds];
     
@@ -41,17 +51,14 @@
     
     CGRect hookImageRect = CGRectMake(xPos,yPos,100,80);
     _fish = [[UIImageView alloc] initWithFrame:hookImageRect];
+
+    NSLog(@"NUMBERNUMBER! %@", _fishImages[whichFIsh]);
     
-    if(_imageValue == 0) {
-       [_fish setImage:[UIImage imageNamed:@"fish"]];
-        [_fishType addObject:[NSNumber numberWithInt:0]];
-    }
-    else if(_imageValue == 1) {
-        [_fish setImage:[UIImage imageNamed:@"fish2"]];
-        [_fishType addObject: [NSNumber numberWithInt:1]];
-    }
+    NSString *imageNamed = _fishImages[whichFIsh];
     
-   
+        [_fish setImage:[UIImage imageNamed:imageNamed]];
+        [_fishType addObject:_fishImages[whichFIsh]];
+
     
      _fish.opaque = YES;
     
@@ -73,19 +80,36 @@
 
 }
 
--(NSNumber *)getFishType:(int)iteration {
+-(void)changeImage: (int)type :(int) iteration{
+    NSArray *images = @[@"fish", @"fish2", @"fish3"];
     
-    NSNumber *fishFacing = _fishType[iteration];
+    int total = type + 1;
+    
+    type = arc4random() % total;
+    
+    _changeFishImage = images[type];
+    
+    [_fishImages addObject:_changeFishImage];
+}
+
+-(NSString *)getFishType:(int)iteration {
+    
+    NSString *fishFacing = _fishType[iteration];
     return fishFacing;
 }
 
--(UIImageView*) addFish{
+-(void)change:(int)type {
+     _imageValue = arc4random() % 2;
+    
+    NSLog(@"NUMBER! %d", _imageValue);
+}
+
+-(UIImageView*) addFish :(int)whichFIsh{
     
     //get random X and Y values and then create the fish with these co-ordinate values. Make sure it fits within the bounds of the play area. It needs to be larger on the X axis so that fish will seem to swim off of the screen. Reappearing seamlessly as though other fish.
     //
         _Y = arc4random() % 600;
         _X = arc4random() % _horizontalScreen;
-        _imageValue = arc4random() % 2;
         
         //work out the screen area.
         //
@@ -102,15 +126,18 @@
         //send fish randomly to either side of the screen depending on random Y value.
         //
         if(_X > _horizontalScreen/2) {
-            _fish = [self addFishImage:_screenWidth + _X - (_horizontalScreen/4) :_Y : 0];
+            _fish = [self addFishImage:_screenWidth + _X - (_horizontalScreen/4) :_Y : 0 :whichFIsh];
         }
         else if(_X < _horizontalScreen/2) {
-            _fish = [self addFishImage:0 - _X :_Y :1];
+            _fish = [self addFishImage:0 - _X :_Y :1 :whichFIsh];
         }
     
     return _fish;
 }
 
+-(int) getScore {
+    return _fishScore;
+}
 //We need to tell the controller when the fish has been moved upon collision.
 -(BOOL)reset: (int) iteration {
     

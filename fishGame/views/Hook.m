@@ -34,17 +34,15 @@
 }
 
 //change the image for the view when the hook collides with the fish view. There are two types of fish.
--(void)changeImageCaught: (int)lineX: (int)lineY : (int)type {
+-(void)changeImageCaught: (int)lineX: (int)lineY : (NSString *)type {
     
     CGRect hookImageRect = CGRectMake(lineX,lineY, 100,140);
     _hookImageView.frame = hookImageRect;
     
-    if(type == 0) {
-       [_hookImageView setImage:[UIImage imageNamed:@"caught"]];
-    }
-    else if(type == 1) {
-        [_hookImageView setImage:[UIImage imageNamed:@"caught2"]];
-    }
+    NSString *image = [NSString stringWithFormat:@"%@%@", type, @"caught"];
+
+       [_hookImageView setImage:[UIImage imageNamed:image]];
+
     
 }
 

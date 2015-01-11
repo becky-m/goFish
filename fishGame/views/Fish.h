@@ -30,19 +30,25 @@
 @property(nonatomic) BOOL resetRound;
 @property(nonatomic) BOOL fishStore;
 @property(nonatomic) int numberOfFish;
+@property(nonatomic) int fishDirection;
+@property(nonatomic, strong) NSMutableArray *fishImages;
+@property(nonatomic, strong) NSString *changeFishImage;
 
 -(BOOL) getReset;
 -(BOOL)fishStored: (int) iteration;
-- (UIImageView*)addFishImage: (int) xPos: (int) yPos :(int) direction;
--(UIImageView*) addFish; 
+- (UIImageView*)addFishImage: (int) xPos: (int) yPos :(int) direction :(int)whichFIsh;
+-(UIImageView*) addFish :(int)whichFIsh;
 -(void) initFish;
 -(void) swim;
 -(UIImageView *)getFishFrame: (int) iteration;
 -(void)caught: (int) iteration ;
--(NSNumber *)getFishType:(int)iteration;
+-(NSString *)getFishType:(int)iteration;
 -(BOOL)reset: (int) iteration;
 -(void)store: (int) iteration;
 -(void)setNumberOfFish: (int) fish; 
+-(void) setImageValue:(int)imageValue;
+-(void) change:(int)type;
+-(void)changeImage: (int)type :(int) iteration; 
 
 
 @end
