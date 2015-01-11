@@ -121,8 +121,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)addScore {
-    _scoreValue  += 1;
+-(void)addScore: (int)scorevalue {
+    _scoreValue  += scorevalue;
     score.text = [NSString stringWithFormat: @"%d",_scoreValue];
 }
 
@@ -161,6 +161,9 @@
                 
                 //magic!
                 NSString *type = [_fishInstance getFishType:i];
+                
+                [_fishInstance setFishScoreValue:type];
+                
                 //change to caught image when a fish has been caught.
                 [_hookInstance changeImageCaught: _lineFrame.origin.x- 44: _lineFrame.size.height + 60: type];
                 [_fishingLineInstance liftLine];//start reeling the fish in.
@@ -170,7 +173,7 @@
                 _hasCollided = TRUE;
                 //reset everthing in the fish instance.
                 [_fishInstance reset:i];
-                [self addScore];//add one to the score.
+                [self addScore: [_fishInstance getScoreValue]];//add one to the score.
                 
             }
             

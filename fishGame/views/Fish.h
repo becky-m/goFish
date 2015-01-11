@@ -33,6 +33,8 @@
 @property(nonatomic) int fishDirection;
 @property(nonatomic, strong) NSMutableArray *fishImages;
 @property(nonatomic, strong) NSString *changeFishImage;
+@property(nonatomic, strong) NSArray *images;
+@property(nonatomic) int scoreValue;
 
 -(BOOL) getReset;
 -(BOOL)fishStored: (int) iteration;
@@ -49,6 +51,7 @@
 -(void) setImageValue:(int)imageValue;
 -(void) change:(int)type;
 -(void)changeImage: (int)type :(int) iteration; 
-
+-(void)setFishScoreValue:(NSString *)type; 
+-(int)getScoreValue;
 
 @end

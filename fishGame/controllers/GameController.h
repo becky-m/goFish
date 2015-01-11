@@ -48,7 +48,7 @@
 -(void)sceneMovement;
 -(void)tapRecognition;
 -(void)Collision;
--(void)addScore;
+-(void)addScore: (int)scorevalue;
 -(void)setUpNavigationBar;
 -(IBAction)back:(id)sender;
 -(void) setNumberOfFish:(int)numberOfFish :(int)end;

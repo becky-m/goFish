@@ -22,6 +22,8 @@
     _fishType = [[NSMutableArray alloc] initWithCapacity:count];
     _fishImages = [[NSMutableArray alloc] initWithCapacity:count];
     
+    _images = @[@"fish", @"fish2", @"fish3"];
+    
     _resetRound = FALSE;
 }
 
@@ -80,14 +82,30 @@
 
 }
 
+-(void)setFishScoreValue:(NSString *)type {
+    
+    if([type isEqualToString:_images[0]]) {
+        _scoreValue = 1;
+    }
+    else if([type isEqualToString:_images[1]]) {
+        _scoreValue = 1;
+    }
+    else if([type isEqualToString:_images[2]]) {
+        _scoreValue = 5;
+    }
+}
+
+-(int)getScoreValue {
+    return _scoreValue;
+}
+
 -(void)changeImage: (int)type :(int) iteration{
-    NSArray *images = @[@"fish", @"fish2", @"fish3"];
     
     int total = type + 1;
     
     type = arc4random() % total;
     
-    _changeFishImage = images[type];
+    _changeFishImage = _images[type];
     
     [_fishImages addObject:_changeFishImage];
 }
@@ -135,9 +153,7 @@
     return _fish;
 }
 
--(int) getScore {
-    return _fishScore;
-}
+
 //We need to tell the controller when the fish has been moved upon collision.
 -(BOOL)reset: (int) iteration {
     
