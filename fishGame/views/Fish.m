@@ -24,6 +24,9 @@
     _resetRound = FALSE;
 }
 
+-(void)setNumberOfFish: (int) fish {
+    _numberOfFish = fish;
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -181,7 +184,7 @@
     
     //time to sort through the fishes array to get the individual fish.
     //
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < _numberOfFish; i++) {
         //get the fish.
         //
         _fishImage = _fishes[i];

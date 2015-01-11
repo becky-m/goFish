@@ -29,7 +29,7 @@
 @property(nonatomic, strong) UIImageView *fishFrame;
 @property(nonatomic) BOOL resetRound;
 @property(nonatomic) BOOL fishStore;
-
+@property(nonatomic) int numberOfFish;
 
 -(BOOL) getReset;
 -(BOOL)fishStored: (int) iteration;
@@ -42,6 +42,7 @@
 -(NSNumber *)getFishType:(int)iteration;
 -(BOOL)reset: (int) iteration;
 -(void)store: (int) iteration;
+-(void)setNumberOfFish: (int) fish; 
 
 
 @end

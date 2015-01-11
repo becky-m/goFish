@@ -17,6 +17,8 @@
     IBOutlet UIButton *begin;
     IBOutlet UILabel *score;
     IBOutlet UIButton *menuButton;
+    
+    BOOL beginPressed; 
 }
     
 @property(nonatomic, strong) UIImageView *beginBtnImage;
@@ -36,6 +38,7 @@
 @property(nonatomic) BOOL reset;
 @property(nonatomic) int whichFish;
 @property(nonatomic)  bool hasCollided;
+@property(nonatomic) int numberOfFish;
     
 @property(nonatomic) bool userTap;
     
@@ -48,5 +51,8 @@
 -(void)addScore;
 -(void)setUpNavigationBar;
 -(IBAction)back:(id)sender;
+-(void) setNumberOfFish:(int)numberOfFish;
+-(int) getScoreValue;
+-(BOOL) beginSelected;
 
 @end

@@ -20,6 +20,9 @@
 
 - (void)viewDidLoad {
     
+    
+    beginPressed = FALSE;
+    
     [self setUpNavigationBar];
 
     _hasCollided =FALSE;
@@ -32,21 +35,7 @@
     [self.view addSubview:[_fishingLineInstance fishingLine]];
     
     //add fish items to the game controller.
-    _fishArray = [[NSMutableArray alloc] initWithCapacity:10];
-
-    
-    _fishInstance = [[Fish alloc] init];
-    [_fishInstance initFish];
-    
-    for(int i= 0; i < 10; i++) {
-        
-        _fish = [_fishInstance addFish];
-        
-        [self.view addSubview:_fish];
-        
-        [_fishArray addObject:_fish];
-        
-    }
+    _fishArray = [[NSMutableArray alloc] initWithCapacity:_numberOfFish];
 
     //Add the hook instance to the game controller.
     _hookInstance = [[Hook alloc] init];
@@ -66,6 +55,35 @@
     [_beginBtnImage setImage:[UIImage imageNamed:@"begin"]];
     
     [begin addSubview:_beginBtnImage];
+}
+
+-(BOOL) beginSelected {
+    return beginPressed;
+}
+
+-(void) setNumberOfFish:(int)numberOfFish {
+    
+    _fishInstance = [[Fish alloc] init];
+    [_fishInstance initFish];
+    
+    if(numberOfFish == (int)nil ) {
+        _numberOfFish = 10;
+    }
+    else {
+         _numberOfFish = numberOfFish;
+    }
+    
+    for(int i= 0; i < _numberOfFish; i++) {
+        
+        _fish = [_fishInstance addFish];
+        
+        [self.view addSubview:_fish];
+        
+        [_fishArray addObject:_fish];
+        
+    }
+    
+    [_fishInstance setNumberOfFish:_numberOfFish];
 }
 
 -(void)setUpNavigationBar {
@@ -99,6 +117,11 @@
 }
 
 
+
+-(int) getScoreValue {
+    return _scoreValue;
+}
+
 //Deal with the collision detection here. This function is 'still in contruction'.
 -(void)Collision {
     
@@ -107,10 +130,10 @@
     _lineFrame = [_fishingLineInstance getLineFrame];
     
     //has the hook already collided with something?
-    if(_hasCollided == FALSE){
+    if((_hasCollided == FALSE) && (_userTap == TRUE)){
         
         //work through the obects and find any collisions.
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < _numberOfFish; i++) {
             
             UIImageView *fish = [_fishInstance getFishFrame: i];
         
@@ -208,6 +231,8 @@
 
 //deal with animation and 'live' calculations here.
 -(void)sceneMovement {
+    
+    //beginPressed = TRUE;
     
     [_fishInstance swim];
     [_fishingLineInstance dropLine:_userTap];
