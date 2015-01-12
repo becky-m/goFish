@@ -14,7 +14,7 @@
     bonusItems = [[NSMutableArray alloc] initWithCapacity:1];
 }
 
--(UIImageView*) addFish :(int)whichFIsh: (int)x: (int) y{
+-(UIImageView*) addFish :(int)whichFIsh :(int)x :(int)y{
   
         _boot = [super addSpriteImage :x :y :0 :whichFIsh];
    
