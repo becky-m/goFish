@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="708"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="downImage" translatesAutoresizingMaskIntoConstraints="NO" id="riv-k2-Rd3">
-                                <rect key="frame" x="0.0" y="317" width="414" height="419"/>
+                                <rect key="frame" x="0.0" y="287" width="414" height="449"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SF-ji-FJr">
                                 <rect key="frame" x="61" y="181" width="243" height="40"/>
