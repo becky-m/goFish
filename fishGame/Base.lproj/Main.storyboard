@@ -30,7 +30,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yVa-eJ-NJF" kind="presentation" id="HRD-Pk-q6v"/>
+                                    <segue destination="yVa-eJ-NJF" kind="show" id="DIw-MC-bJJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYS-4x-67D">
@@ -122,7 +122,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fJK-IU-flZ" kind="push" id="23x-lE-mlH"/>
+                                    <segue destination="fJK-IU-flZ" kind="show" id="rwF-VO-xcm"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -34,7 +34,7 @@
 }
 
 //change the image for the view when the hook collides with the fish view. There are two types of fish.
--(void)changeImageCaught: (int)lineX: (int)lineY : (NSString *)type {
+-(void)changeImageCaught :(int)lineX :(int)lineY :(NSString *)type {
     
     CGRect hookImageRect = CGRectMake(lineX,lineY, 100,140);
     _hookImageView.frame = hookImageRect;
@@ -47,7 +47,7 @@
 }
 
 //when the fish is on the 'boat' reset all of the data so that we can attempt another catch.
--(void) haulFish: (int)lineX: (int)lineY {
+-(void) haulFish :(int)lineX :(int)lineY {
     if( _hookImageView.center.y < 160 && _caughtFish == TRUE) {
         _gotFish = TRUE;
         

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		353F26DE1A5CDA5700864711 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 353F26DC1A5CDA5700864711 /* DataCore.xcdatamodeld */; };
+		355B37921A62FB830032B0B7 /* LevelThree.m in Sources */ = {isa = PBXBuildFile; fileRef = 355B37911A62FB830032B0B7 /* LevelThree.m */; };
+		355B37951A62FBC50032B0B7 /* BonusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 355B37941A62FBC50032B0B7 /* BonusItem.m */; };
+		355B37981A62FC630032B0B7 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 355B37971A62FC630032B0B7 /* Sprite.m */; };
 		35A69C4A1A60BE2200F62542 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A69C491A60BE2200F62542 /* NavigationController.m */; };
 		35B2D8481A5AC3FF0009322F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B2D8471A5AC3FF0009322F /* main.m */; };
 		35B2D84B1A5AC3FF0009322F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B2D84A1A5AC3FF0009322F /* AppDelegate.m */; };
@@ -39,6 +42,12 @@
 
 /* Begin PBXFileReference section */
 		353F26DD1A5CDA5700864711 /* DataCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataCore.xcdatamodel; sourceTree = "<group>"; };
+		355B37901A62FB830032B0B7 /* LevelThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThree.h; sourceTree = "<group>"; };
+		355B37911A62FB830032B0B7 /* LevelThree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelThree.m; sourceTree = "<group>"; };
+		355B37931A62FBC50032B0B7 /* BonusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonusItem.h; sourceTree = "<group>"; };
+		355B37941A62FBC50032B0B7 /* BonusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonusItem.m; sourceTree = "<group>"; };
+		355B37961A62FC630032B0B7 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		355B37971A62FC630032B0B7 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		35A69C481A60BE2200F62542 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		35A69C491A60BE2200F62542 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		35B2D8421A5AC3FF0009322F /* fishGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fishGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +103,10 @@
 		353F26CF1A5CB42B00864711 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				355B37961A62FC630032B0B7 /* Sprite.h */,
+				355B37971A62FC630032B0B7 /* Sprite.m */,
+				355B37931A62FBC50032B0B7 /* BonusItem.h */,
+				355B37941A62FBC50032B0B7 /* BonusItem.m */,
 				35F3F4161A5F667A0015652F /* FishingLine.h */,
 				35F3F4171A5F667A0015652F /* FishingLine.m */,
 				35F3F4101A5F66720015652F /* Fish.h */,
@@ -213,6 +226,8 @@
 				35D401A01A620DA700089DB3 /* LevelTwo.m */,
 				35D401A21A62177A00089DB3 /* LevelOne.h */,
 				35D401A31A62177A00089DB3 /* LevelOne.m */,
+				355B37901A62FB830032B0B7 /* LevelThree.h */,
+				355B37911A62FB830032B0B7 /* LevelThree.m */,
 			);
 			name = levels;
 			sourceTree = "<group>";
@@ -320,11 +335,14 @@
 				35B2D84B1A5AC3FF0009322F /* AppDelegate.m in Sources */,
 				35F3F4141A5F66720015652F /* Fish.m in Sources */,
 				35F3F4151A5F66720015652F /* Hook.m in Sources */,
+				355B37921A62FB830032B0B7 /* LevelThree.m in Sources */,
 				35B2D8481A5AC3FF0009322F /* main.m in Sources */,
 				353F26DE1A5CDA5700864711 /* DataCore.xcdatamodeld in Sources */,
 				35F3F40F1A5F66580015652F /* ViewController.m in Sources */,
 				35F3F41B1A5F66830015652F /* MenuBar.m in Sources */,
+				355B37951A62FBC50032B0B7 /* BonusItem.m in Sources */,
 				35D401A11A620DA700089DB3 /* LevelTwo.m in Sources */,
+				355B37981A62FC630032B0B7 /* Sprite.m in Sources */,
 				35F3F40E1A5F66580015652F /* GameController.m in Sources */,
 				35A69C4A1A60BE2200F62542 /* NavigationController.m in Sources */,
 				35B2D84E1A5AC3FF0009322F /* fishGame.xcdatamodeld in Sources */,

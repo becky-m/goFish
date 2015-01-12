@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"GOFISH: Level Two";
-    [super setNumberOfFish:10 :2];
+    [super setNumberOfFish:10 :1 :2];
     beginLevel.hidden = NO;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(loop) userInfo:nil repeats:YES];

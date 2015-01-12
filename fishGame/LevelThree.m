@@ -1,37 +1,22 @@
 //
-//  LevelOne.m
+//  LevelThree.m
 //  fishGame
 //
 //  Created by Rebecca Mitchell on 11/01/2015.
 //  Copyright (c) 2015 Rebecca Mitchell. All rights reserved.
 //
 
-#import "LevelOne.h"
+#import "LevelThree.h"
 
-@interface LevelOne ()
+@interface LevelThree ()
 
 @end
 
-@implementation LevelOne
+@implementation LevelThree
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"GOFISH: Level One";
-    [super setNumberOfFish:5 :1 :1];
-    
-    nextLevel.hidden = YES;
- 
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(loop) userInfo:nil repeats:YES];
-}
-
--(void) loop {
-    
-    int completedScore = [super getScoreValue];
-    
-    if (completedScore == 5) {
-        nextLevel.hidden = NO;
-    }
 }
 
 - (void)didReceiveMemoryWarning {

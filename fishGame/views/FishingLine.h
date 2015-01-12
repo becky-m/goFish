@@ -32,9 +32,7 @@
 -(void)liftLine;
 -(void)dropLine;
 -(void) haulFish: (BOOL)resetFish;
--(BOOL)getGotFish;
--(BOOL) checkIfNeedsReset ;
--(void) testVariables;
+-(BOOL) checkIfNeedsReset;
 -(void)hitBottom;
 
 
