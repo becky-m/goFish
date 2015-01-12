@@ -52,5 +52,6 @@
 -(void)setSpriteScoreValue:(NSString *)type;
 -(int)getScoreValue;
 -(void)changeImagesArray: (NSString *)image : (int)arrayPos;
+- (UIImageView*)addSpriteImage: (int)xPos :(int)yPos :(int)direction :(int)whichFIsh;
 
 @end

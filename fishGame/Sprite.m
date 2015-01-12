@@ -62,7 +62,7 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (UIImageView*)addSpriteImage: (int) xPos :(int)yPos :(int)direction :(int)whichFIsh {
+- (UIImageView*)addSpriteImage: (int)xPos :(int)yPos :(int)direction :(int)whichFIsh {
     
     _screenRect = [[UIScreen mainScreen] bounds];
     
